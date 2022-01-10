@@ -1,7 +1,8 @@
 // Convert Array of scraped data into a JSON and save it to a File
 const scrapeData = require( './scraper_output/fees_10012022' );
-const protocols = require('./chartJS_input/listOfProtocols');
+const protocols = require('./utils/listOfProtocols');
 const fs = require('fs-extra');
+const utils = require('./utils/saveFileFunction');
 
 let jsonOutput = {
     "ethereumData": [],
@@ -126,22 +127,22 @@ for ( let r = 0; r < scrapeData.length ; r++ ) {
 const jsonFile = 'module.exports = ' + JSON.stringify(jsonOutput);
 console.log(jsonFile)
 
-async function saveFile(f, d) {
+// async function saveFile(f, d) {
 
-    try {
-        await fs.outputFile(f, d);
-        const data = await fs.readFile(d, 'utf8');
-        console.log(data);
-    } catch(e) {
-        console.error(e);
-    }
+//     try {
+//         await fs.outputFile(f, d);
+//         const data = await fs.readFile(d, 'utf8');
+//         console.log(data);
+//     } catch(e) {
+//         console.error(e);
+//     }
 
 
-}
+// }
 
 const filePath = './chartJS_input/jsonFile.js'
 
-saveFile(filePath, jsonFile);
+utils.saveFile(filePath, jsonFile);
 
 
 
