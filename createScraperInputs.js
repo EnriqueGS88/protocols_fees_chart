@@ -1,5 +1,6 @@
 // This script will create 2 files in ./scraper_input
 const fs = require('fs-extra');
+const utils = require('./utils/saveFileFunction');
 
 // 1) Create listoOfDates.js 
 // Function to list all dates till Today in an Array
@@ -29,18 +30,18 @@ let listOfDates = prefix.concat(days, '"]');
 
 // Function to save dates into a JS file as an array
 // where f = file path; and d = data to be written on file
-async function saveFile(f, d) {
-    try {
-        await fs.outputFile(f, d);
-        const data = await fs.readFile(f, 'utf8')
-        console.log(data);
-    } catch (err) {
-        console.error(err);
-    }
-}
+// async function saveFile(f, d) {
+//     try {
+//         await fs.outputFile(f, d);
+//         const data = await fs.readFile(f, 'utf8')
+//         console.log(data);
+//     } catch (err) {
+//         console.error(err);
+//     }
+// }
 
 let pathOfDates = './scraper_input/listOfDates.js';
-saveFile(pathOfDates, listOfDates);
+utils.saveFile(pathOfDates, listOfDates);
 
 // 2) Create listOfTimeouts.js
 // Create a timeout value for every position in the array listOfDates.js
@@ -62,5 +63,5 @@ let timeoutsValues = 'module.exports = [' + timeoutsMap + ']';
 console.log(timeoutsValues);
 
 let pathOfTimeouts = './scraper_input/listOfTimeouts.js';
-saveFile(pathOfTimeouts, timeoutsValues);
+utils.saveFile(pathOfTimeouts, timeoutsValues);
 
