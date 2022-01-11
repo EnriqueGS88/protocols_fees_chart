@@ -122,23 +122,8 @@ for ( let r = 0; r < scrapeData.length ; r++ ) {
     mapProtocolToJSON( scrapeData, r );
 }
 
-// console.log( jsonOutput );
-
 const jsonFile = 'module.exports = ' + JSON.stringify(jsonOutput);
 console.log(jsonFile)
-
-// async function saveFile(f, d) {
-
-//     try {
-//         await fs.outputFile(f, d);
-//         const data = await fs.readFile(d, 'utf8');
-//         console.log(data);
-//     } catch(e) {
-//         console.error(e);
-//     }
-
-
-// }
 
 const filePath = './chartJS_input/jsonFile.js'
 
