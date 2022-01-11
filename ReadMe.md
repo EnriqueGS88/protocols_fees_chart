@@ -83,6 +83,7 @@ Now open the file "chart.html" with the OpenLive Server:
 MIT
 
 ## Future Enhancements
+- Display data as % of market cap and % of fully diluted valuation
 - Toggle to add/remove data series
 - Toggle to change time period
 - Credit data source (cryptofees.info)
