@@ -82,6 +82,14 @@ Now open the file "chart.html" with the OpenLive Server:
 
 MIT
 
+## Future Enhancements
+- Toggle to add/remove data series
+- Toggle to change time period
+- Credit data source (cryptofees.info)
+- Display data of scrape and ETH price then
+- Link Github repository
+
+
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
    [dill]: <https://github.com/joemccann/dillinger>
