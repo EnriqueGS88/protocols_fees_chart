@@ -28,18 +28,6 @@ let days = daysRange.toString().replaceAll(',','","');
 let prefix = 'module.exports = ["';
 let listOfDates = prefix.concat(days, '"]');
 
-// Function to save dates into a JS file as an array
-// where f = file path; and d = data to be written on file
-// async function saveFile(f, d) {
-//     try {
-//         await fs.outputFile(f, d);
-//         const data = await fs.readFile(f, 'utf8')
-//         console.log(data);
-//     } catch (err) {
-//         console.error(err);
-//     }
-// }
-
 let pathOfDates = './scraper_input/listOfDates.js';
 utils.saveFile(pathOfDates, listOfDates);
 
