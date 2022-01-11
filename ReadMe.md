@@ -65,7 +65,18 @@ You can use sampleJSONconverter.js as a model on how the scripts should be assem
 A sample of the transformed data is in ./chartJS_input/jsonFile.js
 
 ## Plot Chart
-Go to 
+Go to ./utils and run the next command to create two files (compDataMappings.js and compSeriesColors.js) in ./chartJS_input/utils:
+```sh
+node createChartComps.js
+```
+Now take the following snippets from ./chartJS_input to create the script that injects the data and config for ChartJS:
+- compDataMappings.js
+- compSeriesColors.js
+- jsonFile.js
+
+That file you create name it "line_script.js" and save it in ./chartJS_input
+
+Now open the file "chart.html" with the OpenLive Server:
 
 
 
