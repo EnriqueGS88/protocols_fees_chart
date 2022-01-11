@@ -403,140 +403,186 @@ let dataQuickswap = jsonFile.quickswapData.map( e => {
 
 // Define colors for all series
 
-const EthereumColor = 'rgb(215, 31, 126)';
-const UniswapColor = 'rgb(215, 31, 126)';
-const Binance_Smart_ChainColor = 'rgb(215, 31, 126)';
-const AaveColor = 'rgb(215, 31, 126)';
-const BalancerColor = 'rgb(215, 31, 126)';
-const SushiSwapColor = 'rgb(215, 31, 126)';
-const Trader_JoeColor = 'rgb(215, 31, 126)';
-const BitcoinColor = 'rgb(215, 31, 126)';
-const CompoundColor = 'rgb(215, 31, 126)';
-const SpookySwapColor = 'rgb(215, 31, 126)';
-const Abracadabra_moneyColor = 'rgb(215, 31, 126)';
-const TerraswapColor = 'rgb(215, 31, 126)';
-const QuickswapColor = 'rgb(215, 31, 126)';
-const MakerDAOColor = 'rgb(215, 31, 126)';
-const AvalancheColor = 'rgb(215, 31, 126)';
+// const EthereumColor = 'rgba(247, 5, 207, 0.41)';
+const UniswapColor = 'rgba(171, 123, 0, 1)';
+const Binance_Smart_ChainColor = 'rgba(249, 161, 234, 0.41)';
+const AaveColor = 'rgba(23, 0, 255, 0.41)';
+const BalancerColor = 'rgba(0, 149, 51, 0.67)';
+const SushiSwapColor = 'rgba(203, 198, 252, 0.41)';
+const Trader_JoeColor = 'rgba(44, 35, 135, 0.41)';
+const BitcoinColor = 'rgba(255, 0, 0, 1)';
+const CompoundColor = 'rgba(0, 0, 255, 1)';
+const SpookySwapColor = 'rgba(255, 0, 255, 1)';
+const Abracadabra_moneyColor = 'rgba(0, 255, 236, 1)';
+const TerraswapColor = 'rgba(0, 255, 236, 0.12)';
+const QuickswapColor = 'rgba(35, 139, 132, 0.12)';
+const MakerDAOColor = 'rgba(8, 210, 128, 0.67)';
+const AvalancheColor = 'rgba(0, 156, 94, 0.67)';
 
- var ctx = document.getElementById('myChart').getContext('2d');
- var config = {
-    type: 'line',
-    data: {
-       labels: labels,
-       datasets: 
-       [
-          {
-            label: "Ethereum",
-            backgroundColor: EthereumColor,
-            borderColor: EthereumColor,
-            fill: false,
-            data: dataEthereum,
-          },
-          {
-            label: "Uniswap",
-            backgroundColor: UniswapColor,
-            borderColor: UniswapColor,
-            fill: false,
-            data: dataUniswap,
-          },
-          {
-            label: "Binance_Smart_Chain",
-            backgroundColor: Binance_Smart_ChainColor,
-            borderColor: Binance_Smart_ChainColor,
-            fill: false,
-            data: dataBinance_Smart_Chain,
-          },
-          {
-            label: "Aave",
-            backgroundColor: AaveColor,
-            borderColor: AaveColor,
-            fill: false,
-            data: dataAave,
-          },
-          {
-            label: "Balancer",
-            backgroundColor: BalancerColor,
-            borderColor: BalancerColor,
-            fill: false,
-            data: dataBalancer,
-          },
-          {
-            label: "SushiSwap",
-            backgroundColor: SushiSwapColor,
-            borderColor: SushiSwapColor,
-            fill: false,
-            data: dataSushiSwap,
-          },
-          {
-            label: "Trader_Joe",
-            backgroundColor: Trader_JoeColor,
-            borderColor: Trader_JoeColor,
-            fill: false,
-            data: dataTrader_Joe,
-          },
-          {
-            label: "Bitcoin",
-            backgroundColor: BitcoinColor,
-            borderColor: BitcoinColor,
-            fill: false,
-            data: dataBitcoin,
-          },
-          {
-            label: "Compound",
-            backgroundColor: CompoundColor,
-            borderColor: CompoundColor,
-            fill: false,
-            data: dataCompound,
-          },
-          {
-            label: "SpookySwap",
-            backgroundColor: SpookySwapColor,
-            borderColor: SpookySwapColor,
-            fill: false,
-            data: dataSpookySwap,
-          },
-          {
-            label: "Abracadabra_money",
-            backgroundColor: Abracadabra_moneyColor,
-            borderColor: Abracadabra_moneyColor,
-            fill: false,
-            data: dataAbracadabra_money,
-          },
-          {
-            label: "Terraswap",
-            backgroundColor: TerraswapColor,
-            borderColor: TerraswapColor,
-            fill: false,
-            data: dataTerraswap,
-          },
-          {
-            label: "Quickswap",
-            backgroundColor: QuickswapColor,
-            borderColor: QuickswapColor,
-            fill: false,
-            data: dataQuickswap,
-          },
-          {
-            label: "MakerDAO",
-            backgroundColor: MakerDAOColor,
-            borderColor: MakerDAOColor,
-            fill: false,
-            data: dataMakerDAO,
-          },
-          {
-            label: "Avalanche",
-            backgroundColor: AvalancheColor,
-            borderColor: AvalancheColor,
-            fill: false,
-            data: dataAvalanche,
-          }
-        ] 
-       
-       
-       
+const chartBackground = {
+  id: 'custom_canvas_background_color',
+  beforeDraw: (chart) => {
+    const ctx = chart.canvas.getContext('2d');
+    ctx.save();
+    ctx.globalCompositeOperation = 'destination-over';
+    ctx.fillStyle = 'rgb(15,15,15)';
+    ctx.fillRect( 29, 35, chart.width-42, chart.height-96 );
+    ctx.restore();
+  }
+};
+
+
+var options = {
+  title: {
+    text: 'Daily Fees earned by DeFi protocols - USD',
+    display: true,
+    position: 'top',
+    fontColor: 'white',
+    fontStyle: 'bold',
+    fontSize: 20,
+    padding: 5,
+  },
+  legend: {
+    display: true,
+    position: 'bottom'
+  },
+  maintainAspectRatio: false,
+  scales:{
+    y: {
+      stacked: true,
+      grid: {
+        display: true,
+        color: 'rgba(255,99,132,0.2)'
+      },
+    x: {
+      grid: {
+        display: false
+        }
       }
-    };
-    
-    var chart = new Chart(ctx, config);
-    
+    }
+  }
+}
+
+var ctx = document.getElementById('myChart').getContext('2d');
+var config = {
+  type: 'line',
+  options: options,
+  plugins: [chartBackground],
+  data: {
+      labels: labels,
+      datasets: 
+      [
+        // {
+        //   label: "Ethereum",
+        //   backgroundColor: EthereumColor,
+        //   borderColor: EthereumColor,
+        //   fill: false,
+        //   data: dataEthereum,
+        // },
+        {
+          label: "Uniswap",
+          backgroundColor: UniswapColor,
+          borderColor: UniswapColor,
+          fill: false,
+          data: dataUniswap,
+        },
+        {
+          label: "Binance_Smart_Chain",
+          backgroundColor: Binance_Smart_ChainColor,
+          borderColor: Binance_Smart_ChainColor,
+          fill: false,
+          data: dataBinance_Smart_Chain,
+        },
+        {
+          label: "Aave",
+          backgroundColor: AaveColor,
+          borderColor: AaveColor,
+          fill: false,
+          data: dataAave,
+        },
+        {
+          label: "Balancer",
+          backgroundColor: BalancerColor,
+          borderColor: BalancerColor,
+          fill: false,
+          data: dataBalancer,
+        },
+        {
+          label: "SushiSwap",
+          backgroundColor: SushiSwapColor,
+          borderColor: SushiSwapColor,
+          fill: false,
+          data: dataSushiSwap,
+        },
+        {
+          label: "Trader_Joe",
+          backgroundColor: Trader_JoeColor,
+          borderColor: Trader_JoeColor,
+          fill: false,
+          data: dataTrader_Joe,
+        },
+        {
+          label: "Bitcoin",
+          backgroundColor: BitcoinColor,
+          borderColor: BitcoinColor,
+          fill: false,
+          data: dataBitcoin,
+        },
+        {
+          label: "Compound",
+          backgroundColor: CompoundColor,
+          borderColor: CompoundColor,
+          fill: false,
+          data: dataCompound,
+        },
+        {
+          label: "SpookySwap",
+          backgroundColor: SpookySwapColor,
+          borderColor: SpookySwapColor,
+          fill: false,
+          data: dataSpookySwap,
+        },
+        {
+          label: "Abracadabra_money",
+          backgroundColor: Abracadabra_moneyColor,
+          borderColor: Abracadabra_moneyColor,
+          fill: false,
+          data: dataAbracadabra_money,
+        },
+        {
+          label: "Terraswap",
+          backgroundColor: TerraswapColor,
+          borderColor: TerraswapColor,
+          fill: false,
+          data: dataTerraswap,
+        },
+        {
+          label: "Quickswap",
+          backgroundColor: QuickswapColor,
+          borderColor: QuickswapColor,
+          fill: false,
+          data: dataQuickswap,
+        },
+        {
+          label: "MakerDAO",
+          backgroundColor: MakerDAOColor,
+          borderColor: MakerDAOColor,
+          fill: false,
+          data: dataMakerDAO,
+        },
+        {
+          label: "Avalanche",
+          backgroundColor: AvalancheColor,
+          borderColor: AvalancheColor,
+          fill: false,
+          data: dataAvalanche,
+        }
+      ] 
+      
+      
+      
+    }
+  };
+  
+  var chart = new Chart(ctx, config);
+  
