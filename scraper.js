@@ -1,5 +1,8 @@
 // Get all fees produced per protocol from cryptofees.info
 // Save output in a module.exports Array Format
+// ReadMe source: https://www.freecodecamp.org/news/how-to-write-a-good-readme-file/
+// Read Me source: dillinger.io
+
 
 const puppeteer = require('puppeteer');
 // const { convertArrayToCSV } = require('convert-array-to-csv');
