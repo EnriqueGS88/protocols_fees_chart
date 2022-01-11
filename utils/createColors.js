@@ -1,4 +1,9 @@
+// Generate the component that defines the colors on the convertArrayToJSON.js
+
+const file = require('fs-extra/lib/ensure/file');
 const protocols = require('./listOfProtocols');
+const { saveFile } = require('./saveFileFunction');
+const utils = require('./saveFileFunction');
 
 let colors = [];
 
@@ -7,4 +12,10 @@ protocols.forEach( e => {
     colors.push(text);
 })
 
-console.log(colors)
+let stringOfColors = JSON.stringify(colors);
+
+let filePath = './compSeriesColors.js'
+
+saveFile(filePath, stringOfColors)
+
+console.log(stringOfColors)

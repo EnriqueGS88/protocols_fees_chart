@@ -1,15 +1,7 @@
-// Use this 
+// Generate component that defines the data<>colors mappings used in the chartjs_json_script.js
+const utils = require('./saveFileFunction');
 const protocols = require('./listOfProtocols');
-
-// Sample of the Element that this script should build
-// {
-//     label: 'Ethereum',
-//     backgroundColor: EthereumColor,
-//     borderColor: EthereumColor,
-//     fill: false,
-//     data: dataEthereum,
-// }
-
+const { saveFile } = require('./saveFileFunction');
 const preffix = "{ ";
 const suffix = " }";
 
@@ -38,3 +30,7 @@ let mapped = protocols.map( p => {
 })
 
 console.log(mapped)
+
+let stringMapped = JSON.stringify(mapped);
+let filePath = './compDataMappings.js';
+saveFile(filePath, stringMapped)
