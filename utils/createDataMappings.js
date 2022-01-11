@@ -1,36 +1,48 @@
-// Generate component that defines the data<>colors mappings used in the chartjs_json_script.js
-const utils = require('./saveFileFunction');
+// Generate components to assemble the script.js for ChartJS
 const protocols = require('./listOfProtocols');
-const { saveFile } = require('./saveFileFunction');
-const preffix = "{ ";
-const suffix = " }";
+const utils = require('./saveFileFunction');
 
+// Build component to map all dataseries with their colors
 let buildMapping = e => {
     let label = "label: '" + e + "' ,";
     let background = "backgroundColor: " + e + "Color" + ", ";
     let border = "borderColor: " + e + "Color" + ", ";
     let fill = "fill: false, ";
     let data = "data: data" + e + ", " 
-    
     let mappedElement = (
-        preffix + 
+        "{ " + 
         label + 
         background + 
         border +
         fill +
         data +
-        suffix 
+        " }" 
     )
-
     return mappedElement
 }
 
-let mapped = protocols.map( p => {
+let mappings = protocols.map( p => {
     return buildMapping(p);
 })
 
-console.log(mapped)
+// console.log(mappings)
 
-let stringMapped = JSON.stringify(mapped);
-let filePath = './compDataMappings.js';
-saveFile(filePath, stringMapped)
+let stringMappings = JSON.stringify(mappings);
+let filePathMappings = '../chartJS_input/utils/compDataMappings.js';
+utils.saveFile(filePathMappings, stringMappings)
+
+// Build list of colors for each data series
+let colors = [];
+
+protocols.forEach( e => {
+    let text = "const "+ e + "Color" + " = 'rgb(215, 31, 126)'";
+    colors.push(text);
+})
+
+let stringOfColors = JSON.stringify(colors);
+
+let filePathColors = '../chartJS_input/utils/compSeriesColors.js'
+
+utils.saveFile(filePathColors, stringOfColors)
+
+// console.log(stringOfColors)
