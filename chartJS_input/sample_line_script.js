@@ -1,68 +1,6 @@
 // Sample from stackoverflow
 // source: https://stackoverflow.com/questions/44990517/displaying-json-data-in-chartjs
 
-// Below snippet Data for Sample Demo 
-/*
-const jsonFile = {
-    "ethereumData": [{
-        date: '2021-12-29',
-        fee: 100
-    }, {
-        date: '2021-12-30',
-        fee: 110
-    }, {
-        date: '2021-12-31',
-        fee: 250
-    }],
-    "sushiswapData": [{
-        date: '2021-12-29',
-        fee: 50
-    }, {
-        date: '2021-12-30',
-        fee: 195
-    }, {
-        date: '2021-12-31',
-        fee: 70
-    }],
-    "uniswapData": [{
-        date: '2021-12-29',
-        fee: 50
-    }, {
-        date: '2021-12-30',
-        fee: 110
-    }, {
-        date: '2021-12-31',
-        fee: 280
-    }]
-};
-
-
-
-// Use the Ethereum data series to define the labels (X axis)
-let labels = jsonFile.ethereumData.map(function(e) {
-    return e.date;
-});
-
-
-// These are the data series for 3 sample protocols
-let dataEthereum = jsonFile.ethereumData.map( e => {
-    return e.fee;
-});
-
-let dataUniswap = jsonFile.uniswapData.map(function(e) {
-    return e.fee;
-});
-
-let dataSushiswap = jsonFile.sushiswapData.map( function(e) {
-    return e.fee;
-});
-
-const ethereumColor = 'rgba(0, 119, 204, 0.3)';
-const uniswapColor = 'rgb(255, 99, 132)';
-const sushiswapColor = 'rgb(215, 31, 126)';
-
-*/
-
 const jsonFile = {
   ethereumData: [
     { date: '2021-12-01', fee: 62620320 },
@@ -602,24 +540,3 @@ const AvalancheColor = 'rgb(215, 31, 126)';
     
     var chart = new Chart(ctx, config);
     
-  //   [{
-  //    label: 'Ethereum',
-  //    backgroundColor: EthereumColor,
-  //    borderColor: EthereumColor,
-  //    fill: false,
-  //    data: dataEthereum,
-  //   }, {
-  //    label: 'Uniswap',
-  //    backgroundColor: UniswapColor,
-  //    borderColor: UniswapColor,
-  //    fill: false,
-  //    data: dataUniswap,
-  //   }, {
-  //    label: 'Sushi',
-  //    backgroundColor: SushiSwapColor,
-  //    borderColor: SushiSwapColor,
-  //    fill: false,
-  //    data: dataSushiswap,
-  //  } ]
- 
-  
