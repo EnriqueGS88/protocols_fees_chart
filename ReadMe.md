@@ -87,7 +87,7 @@ MIT
 - Toggle to add/remove data series
 - Toggle to change time period
 - Credit data source (cryptofees.info)
-- Display data of scrape and ETH price then
+- Display data of scrape and ETH price at scraping date
 - Link Github repository
 
 
