@@ -91,8 +91,8 @@ MIT
 - Link Github repository
 - Link Twitter
 
-## Progress
-| Plugin | README |
+## WIP
+| Enhancement  | Progress |
 | ------ | ------ |
 | Series as MktCap % | ⣿⣿⣀⣀⣀⣀⣀⣀⣀⣀ |
 
