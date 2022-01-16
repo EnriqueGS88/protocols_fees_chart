@@ -82,7 +82,7 @@ Now open the file "chart.html" with the OpenLive Server:
 
 MIT
 
-## Future Enhancements
+## Roadmap
 - Display data as % of market cap and % of fully diluted valuation
 - Toggle to add/remove data series
 - Toggle to change time period
@@ -90,6 +90,11 @@ MIT
 - Display data of scrape and ETH price at scraping date
 - Link Github repository
 - Link Twitter
+
+## Progress
+| Plugin | README |
+| ------ | ------ |
+| Series as MktCap % | ⣿⣿⣀⣀⣀⣀⣀⣀⣀⣀ |
 
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
